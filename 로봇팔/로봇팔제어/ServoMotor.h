@@ -1,6 +1,5 @@
 #include <Adafruit_PWMServoDriver.h>
 #include <Adafruit_INA219.h>
-#define ndel 200
 #define Servo_freq 50  //서보모터 주파수, 기본 50Hz
 
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver(0X43);
@@ -44,22 +43,6 @@ void movearm(int arm_bf[], int arm_af[], int del, int sw) {
       delay(del);
     }
   }
-  //  else { //delay 작으면 천천히 스무스하게 증가
-  //    for (int i = arm_bf[1]; i < arm_af[1]; i++) {
-  //      arm_bf[0] += arm_diff[0];
-  //      arm_bf[1] += 1;
-  //      arm_bf[2] += arm_diff[2];
-  //      arm_bf[3] += arm_diff[3];
-  //
-  //      pwm.setPWM(11, 0, arm_bf[3]);
-  //      pwm.setPWM(0, 0, arm_bf[0]);
-  //      pwm.setPWM(5, 0, i);
-  //      pwm.setPWM(7, 0, arm_bf[2]);
-  //      delay(del);
-  //    }
-  //  }
-  //  Serial.print(arm_bf[0]); Serial.print(" "); Serial.print(arm_bf[1]); Serial.print(" ");
-  //  Serial.print(arm_bf[2]); Serial.print(" "); Serial.print(arm_bf[3]); Serial.print(" "); Serial.println(arm_bf[4]);
 }
 class ServoMotor {
     const int init[5] = {110, 410, 400, 0, 280}; //0번 PIN0, 1번 PIN5, 2번 PIN7, 3번 PIN9, 4번 PIN11, 초기값 FIX
